@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var currentlyTypingANumber = false
+    var noDotTypedYet = true
     var operandStack = Array<Double>()
     
     // display is an optional + bang. This means
@@ -34,9 +35,20 @@ class ViewController: UIViewController {
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if currentlyTypingANumber == true {
-            display.text = display.text! + digit
+            if ((digit == ".") && noDotTypedYet) {
+                display.text = display.text! + digit
+                if (digit == ".") {
+                    noDotTypedYet = false
+                }
+            } else {
+                display.text = display.text! + digit
+            }
         } else {
-            display.text = digit
+            if ((digit == ".") && noDotTypedYet) {
+                display.text = "0" + digit
+            } else {
+                display.text = digit
+            }
             currentlyTypingANumber = true
         }
     }
@@ -49,6 +61,22 @@ class ViewController: UIViewController {
         println("operand stack = \(operandStack)")
     }
 
+    @IBAction func set(sender: UIButton) {
+        let constant = sender.currentTitle!
+        
+        // Make the operator keys work as enter if we're currently a number
+        // so we don't need to push it on the operand stack
+        if currentlyTypingANumber {
+            enter()
+        }
+        
+        switch constant {
+        case "pi": displayValue = M_PI
+        default: break
+        }
+        enter()
+    }
+    
     // Handle the operator keys
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
@@ -65,6 +93,8 @@ class ViewController: UIViewController {
         case "+": performOperation{$1 + $0}
         case "−": performOperation{$1 - $0}
         case "√": performOperation{sqrt($0)}
+        case "sin": performOperation{sin($0)}
+        case "cos": performOperation{cos($0)}
         default: break
         }
     }
