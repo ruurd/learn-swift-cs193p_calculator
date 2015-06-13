@@ -9,15 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     var currentlyTypingANumber = false
     var noDotTypedYet = true
     var operandStack = Array<Double>()
-    
+
     // display is an optional + bang. This means
     // that if you use it you get the value back
     // without asking for it with a bang later on.
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var tape: UILabel!
 
     // Computed property that mirrors the value in
     // the display as a double
@@ -29,7 +30,7 @@ class ViewController: UIViewController {
             display.text = "\(newValue)"
         }
     }
-    
+
     // Pick the digit from the sender and append
     // it to the display title
     @IBAction func appendDigit(sender: UIButton) {
@@ -63,30 +64,48 @@ class ViewController: UIViewController {
 
     @IBAction func set(sender: UIButton) {
         let constant = sender.currentTitle!
-        
+
         // Make the operator keys work as enter if we're currently a number
         // so we don't need to push it on the operand stack
         if currentlyTypingANumber {
             enter()
         }
-        
+
         switch constant {
         case "pi": displayValue = M_PI
         default: break
         }
         enter()
     }
-    
+
+    @IBAction func clear(sender: UIButton) {
+        let clearing = sender.currentTitle!
+
+        switch clearing {
+        case "C":
+            if operandStack.count > 0 {
+                operandStack.removeLast()
+            }
+            displayValue = 0
+
+        case "CA":
+            displayValue = 0
+            operandStack.removeAll(keepCapacity: false)
+        default: break
+        }
+        enter()
+    }
+
     // Handle the operator keys
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
-        
+
         // Make the operator keys work as enter if we're currently a number
         // so we don't need to push it on the operand stack
         if currentlyTypingANumber {
             enter()
         }
-        
+
         switch operation {
         case "×": performOperation{$1 * $0}
         case "÷": performOperation{$1 / $0}
@@ -108,13 +127,13 @@ class ViewController: UIViewController {
             enter()
         }
     }
-    
+
     private func performOperation(operation: Double -> Double) {
         if operandStack.count >= 1 {
             displayValue = operation(operandStack.removeLast());
             enter()
         }
     }
-    
+
 }
 
