@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B9E127D1BC0448900FCC90A /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9E127C1BC0448900FCC90A /* CalculatorBrain.swift */; settings = {ASSET_TAGS = (); }; };
 		7BE373C71B1B46700049D25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE373C61B1B46700049D25F /* AppDelegate.swift */; };
 		7BE373C91B1B46700049D25F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE373C81B1B46700049D25F /* ViewController.swift */; };
 		7BE373CC1B1B46700049D25F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BE373CA1B1B46700049D25F /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B9E127C1BC0448900FCC90A /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		7BE373C11B1B46700049D25F /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE373C51B1B46700049D25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BE373C61B1B46700049D25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,9 +79,10 @@
 		7BE373C31B1B46700049D25F /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				7BE373C81B1B46700049D25F /* ViewController.swift */,
+				7B9E127C1BC0448900FCC90A /* CalculatorBrain.swift */,
 				7BE373CA1B1B46700049D25F /* Main.storyboard */,
 				7BE373C41B1B46700049D25F /* Supporting Files */,
+				7BE373C81B1B46700049D25F /* ViewController.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -156,7 +159,9 @@
 		7BE373B91B1B46700049D25F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Ruurd Pels";
 				TargetAttributes = {
 					7BE373C01B1B46700049D25F = {
@@ -212,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B9E127D1BC0448900FCC90A /* CalculatorBrain.swift in Sources */,
 				7BE373C91B1B46700049D25F /* ViewController.swift in Sources */,
 				7BE373C71B1B46700049D25F /* AppDelegate.swift in Sources */,
 			);
@@ -276,6 +282,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -291,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -330,8 +337,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -344,6 +352,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.rfpels.experiments.ios.calculator.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -354,6 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.rfpels.experiments.ios.calculator.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -372,6 +382,7 @@
 				);
 				INFOPLIST_FILE = CalculatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.rfpels.experiments.ios.calculator.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
 			};
@@ -387,6 +398,7 @@
 				);
 				INFOPLIST_FILE = CalculatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.rfpels.experiments.ios.calculator.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
 			};
@@ -411,6 +423,7 @@
 				7BE373E21B1B46710049D25F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BE373E31B1B46710049D25F /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +432,7 @@
 				7BE373E51B1B46710049D25F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

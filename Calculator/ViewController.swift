@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     @IBAction func enter() {
         currentlyTypingANumber = false
         operandStack.append(displayValue)
-        println("operand stack = \(operandStack)")
+        print("operand stack = \(operandStack)")
     }
 
     @IBAction func set(sender: UIButton) {
